@@ -1,0 +1,192 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --border: #e2e8f0;
+  --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, #eef2ff 0%, var(--bg) 45%, #f8fafc 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.2rem 3.5rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 0.75rem auto 0;
+  max-width: 760px;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.3rem;
+  box-shadow: var(--shadow);
+}
+
+.input-card {
+  grid-column: span 5;
+}
+
+.result-card,
+.savings-card {
+  grid-column: span 3.5;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+textarea,
+select,
+input[type='number'] {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 74px;
+}
+
+.field {
+  margin-top: 1rem;
+}
+
+.field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.field-header input[type='number'] {
+  width: 132px;
+}
+
+.field-header output {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+input[type='range'] {
+  width: 100%;
+  margin-top: 0.5rem;
+  accent-color: var(--accent);
+}
+
+.multiplier-scroller {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.1rem 0.5rem;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+}
+
+.multiplier-pill {
+  border: 1px solid #bfd2ff;
+  color: #1d4ed8;
+  background: #eef4ff;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+.multiplier-pill.active {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.muted {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.metric {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem;
+  margin-top: 0.8rem;
+  background: #fbfdff;
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.metric strong {
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+.result-card {
+  background: linear-gradient(165deg, #fff1f2, #ffffff 46%);
+}
+
+.savings-card {
+  background: linear-gradient(165deg, #ecfdf5, #ffffff 46%);
+}
+
+.success strong {
+  color: var(--success);
+}
+
+@media (max-width: 1050px) {
+  .input-card,
+  .result-card,
+  .savings-card {
+    grid-column: span 12;
+  }
+}

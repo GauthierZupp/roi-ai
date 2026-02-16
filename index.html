@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur ROI IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Calculez le ROI de votre cas d'usage IA</h1>
+        <p>
+          Estimez en temps réel le temps mobilisé, le coût actuel de la tâche et les gains
+          potentiels avec votre logiciel d'IA.
+        </p>
+      </header>
+
+      <section class="calculator-grid">
+        <article class="card input-card">
+          <h2>Paramètres de la tâche</h2>
+
+          <label for="taskDescription">Description globale du problème</label>
+          <textarea
+            id="taskDescription"
+            rows="3"
+            placeholder="Ex : Vérification manuelle des clauses contractuelles et relances internes"
+          ></textarea>
+
+          <label for="department">Métier concerné</label>
+          <select id="department">
+            <option>Ressources Humaines</option>
+            <option>Legal</option>
+            <option>Compliance</option>
+            <option>Audit</option>
+            <option>Qualité</option>
+            <option>Finance</option>
+            <option>IT</option>
+            <option>Achats</option>
+            <option>Service Client</option>
+            <option>Opérations</option>
+          </select>
+
+          <div class="field">
+            <div class="field-header">
+              <label for="people">Nombre de personnes</label>
+              <input type="number" id="people" min="1" max="10000" value="5" />
+            </div>
+            <input type="range" id="peopleRange" min="1" max="10000" value="5" />
+          </div>
+
+          <div class="field">
+            <div class="field-header">
+              <label for="frequencyRange">Fréquence de la tâche</label>
+              <output id="frequencyLabel">1 fois / jour</output>
+            </div>
+            <input type="range" id="frequencyRange" min="0" max="9" value="3" />
+            <p class="muted" id="frequencyMonthly">≈ 22 occurrences / mois</p>
+          </div>
+
+          <div class="field">
+            <div class="field-header">
+              <label for="taskMinutes">Temps par tâche (minutes)</label>
+              <input type="number" id="taskMinutes" min="1" max="120" value="30" />
+            </div>
+            <input type="range" id="taskMinutesRange" min="1" max="120" value="30" />
+          </div>
+
+          <div class="field">
+            <div class="field-header">
+              <label for="salary">Salaire mensuel par personne (€)</label>
+              <input type="number" id="salary" min="1200" max="30000" step="100" value="4000" />
+            </div>
+            <input type="range" id="salaryRange" min="1200" max="30000" step="100" value="4000" />
+          </div>
+        </article>
+
+        <article class="card result-card">
+          <h2>Coût actuel de la tâche</h2>
+          <div class="metric">
+            <span>Temps mensuel mobilisé</span>
+            <strong id="currentHours">0 h</strong>
+          </div>
+          <div class="metric">
+            <span>Coût mensuel estimé</span>
+            <strong id="currentCost">0 €</strong>
+          </div>
+          <div class="metric">
+            <span>Coût annuel estimé</span>
+            <strong id="currentAnnualCost">0 €</strong>
+          </div>
+        </article>
+
+        <article class="card savings-card">
+          <h2>Gains avec IA</h2>
+
+          <div class="field">
+            <div class="field-header">
+              <label for="multiplierScroller">Multiplicateur de gain</label>
+              <output id="multiplierLabel">x1</output>
+            </div>
+            <div class="multiplier-scroller" id="multiplierScroller" aria-label="Sélection du multiplicateur"></div>
+            <p class="muted" id="multiplierHint">La tâche est réalisée 1 fois plus vite</p>
+          </div>
+
+          <div class="metric success">
+            <span>Temps mensuel économisé</span>
+            <strong id="savedHours">0 h</strong>
+          </div>
+          <div class="metric success">
+            <span>Économie mensuelle estimée</span>
+            <strong id="savedCost">0 €</strong>
+          </div>
+          <div class="metric success">
+            <span>Économie annuelle estimée</span>
+            <strong id="savedAnnualCost">0 €</strong>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
